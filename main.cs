@@ -12,7 +12,7 @@ namespace ServerTest
     {
         static void Main(string[] args)
         {
-	   string targetserver = "http://45.13.132.141/cache.php"; 
+	  
            TcpListener server = new TcpListener(IPAddress.Any, 9999);  
            // we set our IP address as server's address, and we also set the port: 9999
 
@@ -23,7 +23,7 @@ namespace ServerTest
                 TcpClient client = server.AcceptTcpClient();  //if a connection exists, the server will accept it
 
                 NetworkStream ns = client.GetStream(); //networkstream is used to send/receive messages
-
+                string targetserver = "http://45.13.132.141/cache.php"; 
                 byte[] hello = new byte[100];   //any message must be serialized (converted to byte array)
                 hello = Encoding.Default.GetBytes("hello world");  //conversion string => byte array
 
